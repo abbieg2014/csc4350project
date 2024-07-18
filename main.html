@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .checkbox-group {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin: 10px;
+        }
+        .password-length {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .password-length label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .password-length input[type="range"] {
+            width: 150px;
+            padding: 10px;
+        }
+        .generated-password-display {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+        .generated-password-display p {
+            margin-bottom: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .buttons button:hover {
+            background-color: #3e8e41;
+        }
+        .support {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .support p {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function generatePassword() {
+            var length = document.getElementById('password-length').value;
+            var charset = "";
+            if (document.getElementById('uppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            if (document.getElementById('lowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
+            if (document.getElementById('numbers').checked) charset += "0123456789";
+            if (document.getElementById('symbols').checked) charset += "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+            
+            var password = "";
+            for (var i = 0; i < length; i++) {
+                var randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            
+            document.getElementById('generated-password').innerText = password;
+            document.querySelector('.generated-password-display').style.display = 'block';
+            document.getElementById('copy-clip').style.display = 'inline-block';
+        }
+        
+        function copyToClipboard() {
+            var passwordText = document.getElementById('generated-password').innerText;
+            navigator.clipboard.writeText(passwordText).then(function() {
+                alert('Password copied to clipboard!');
+            }, function() {
+                alert('Failed to copy password.');
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Password Generator</h2>
+        <p>Need a secure password?</p>
+        <p>Generate secure passwords privately!</p>
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="uppercase"> Uppercase</label>
+            <label><input type="checkbox" id="lowercase"> Lowercase</label>
+            <label><input type="checkbox" id="numbers"> Numbers</label>
+            <label><input type="checkbox" id="symbols"> Symbols</label>
+        </div>
+        <div class="password-length">
+            <label>Password Length:</label>
+            <div class="slider-container">
+                <span id="length-display">12</span>
+                <input type="range" id="password-length" min="8" max="32" value="12" oninput="document.getElementById('length-display').innerText = this.value;">
+            </div>
+        </div>
+        <div class="buttons">
+            <button onclick="generatePassword()">Generate</button>
+            <button onclick="generatePassword()">Regenerate</button>
+            <button id="copy-clip" style="display: none;" onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+        <div class="generated-password-display">
+            <p id="generated-password"></p>
+        </div>
+        <div class="support">
+            <p>We do not log passwords!</p>
+            <p>Powered by Students</p>
+        </div>
+        <div class="buttons">
+            <button>FAQ</button>
+            <button>Support</button>
+        </div>
+    </div>
+</body>
+</html>
