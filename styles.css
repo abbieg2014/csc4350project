@@ -1,0 +1,120 @@
+/* for container styling */
+.container {
+    width: 300px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* for title */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* checkbox styling */
+.checkbox-group {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* for checkbox label */
+.checkbox-group label {
+    display: inline-block;
+    margin: 10px;
+}
+
+/* length styling */
+.password-length {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* for length labeling */
+.password-length label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* slider container */
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* for password length */
+.password-length input[type="range"] {
+    width: 150px;
+    padding: 10px;
+}
+
+/* for display styling */
+.generated-password-display {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+}
+
+/* password text styling */
+.generated-password-display p {
+    margin-bottom: 10px;
+}
+
+/* buttons container */
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* for buttons */
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* hovering effecting */
+.buttons button:hover {
+    background-color: #3e8e41;
+}
+
+/* support styling */
+.support {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* support text styling */
+.support p {
+    margin-bottom: 10px;
+}
